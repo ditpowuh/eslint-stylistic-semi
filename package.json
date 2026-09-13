@@ -1,0 +1,24 @@
+{
+  "name": "@ditpowuh/eslint-stylistic-semi",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0",
+    "@stylistic/eslint-plugin": "^5.0.0"
+  },
+  "author": "Ditpowuh",
+  "license": "MIT",
+  "homepage": "https://github.com/ditpowuh/eslint-stylistic-semi",
+  "bugs": {
+    "url": "https://github.com/ditpowuh/eslint-stylistic-semi/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditpowuh/eslint-stylistic-semi.git"
+  }
+}
