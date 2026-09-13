@@ -8,8 +8,8 @@
     ".": "./index.js"
   },
   "peerDependencies": {
-    "eslint": "^8.0.0",
-    "@stylistic/eslint-plugin": "^5.0.0"
+    "@stylistic/eslint-plugin": "^5",
+    "eslint": "^9 || ^10"
   },
   "author": "Ditpowuh",
   "license": "MIT",
