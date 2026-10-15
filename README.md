@@ -1,14 +1,13 @@
 # eslint-stylistic-semi
 
-A ESLint plugin that adds onto `@stylistic/eslint-plugin`, covering a specific rule with semicolons.
-This plugin wraps the `semi` rule, so you get all its options as usual, just with this adjustment.
+A ESLint plugin built on `@stylistic/eslint-plugin`, covering a specific rule with semicolons.
 
-`@stylistic/eslint-plugin` with the `semi` rule either forces semicolons everywhere or forces no semicolons at all. This plugin lets omission of semicolons on all function declarations (i.e. arrow functions assigned to variable, anonymous function assigned to variable, returning a function).
+`@stylistic/eslint-plugin` with the `semi` rule either forces semicolons everywhere or forces no semicolons at all. This plugin enforces semicolons everywhere except on function declarations (i.e. arrow functions assigned to variable, anonymous function assigned to variable, returning a function), where semicolons must be omitted (or are optional, see [Options](#options)).
 
 
-**Example of allowed usage (when set to always):**
+**Example of allowed usage (under `"strict"`):**
 ```js
-// As seen, functions defined like this don't require semicolons
+// As seen, functions defined like this must not have semicolons
 const greet = function(name) {
   return `Hello, ${name}!`;
 }
@@ -32,6 +31,17 @@ const y = [1, 2, 3];
 doSomething();
 ```
 
+### Options
+The only option controls what happens on those function declarations:
+- `"strict"` (default): semicolons must be omitted there; a semicolon is reported as an extra semicolon (and autofixed).
+- `"any"`: semicolons are allowed or omitted there.
+
+```js
+"custom-semi/semi": ["error"]
+"custom-semi/semi": ["error", "strict"]
+"custom-semi/semi": ["error", "any"]
+```
+
 ### Install
 ```bash
 npm install --save-dev @stylistic/eslint-plugin @ditpowuh/eslint-stylistic-semi
@@ -50,9 +60,8 @@ export default [
     },
     rules: {
       "stylistic/semi": "off",
-      "custom-semi/semi": ["error", "always"]
+      "custom-semi/semi": ["error", "strict"]
     }
   }
 ];
 ```
-Because this uses `@stylistic/eslint-plugin`'s `semi`, all options for semi can be passed.
